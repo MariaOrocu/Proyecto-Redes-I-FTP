@@ -3,13 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/jcast/Desktop/Redes%201/Proyecto%20redes/FTPServer/src/GUI/Login.java</file>
-            <file>file:/C:/Users/jcast/Desktop/Redes%201/Proyecto%20redes/FTPServer/src/domain/Usuario.java</file>
-            <file>file:/C:/Users/jcast/Desktop/Redes%201/Proyecto%20redes/FTPServer/src/data/UsuarioData.java</file>
-            <file>file:/C:/Users/jcast/Desktop/Redes%201/Proyecto%20redes/FTPServer/src/GUI/Registro.java</file>
-            <file>file:/C:/Users/jcast/Desktop/Redes%201/Proyecto%20redes/FTPServer/src/GUI/VistaCliente.java</file>
-            <file>file:/C:/Users/jcast/Desktop/Redes%201/Proyecto%20redes/FTPServer/src/main/FTPServer.java</file>
-            <file>file:/C:/Users/jcast/Desktop/Redes%201/Proyecto%20redes/FTPServer/src/data/ConexionMysql.java</file>
+            <file>file:/C:/Users/jcast/Desktop/Redes%201/Proyecto%20redes/Proyecto-Redes-I-FTP/src/GUI/Registro.java</file>
+            <file>file:/C:/Users/jcast/Desktop/Redes%201/Proyecto%20redes/Proyecto-Redes-I-FTP/src/server/Server.java</file>
+            <file>file:/C:/Users/jcast/Desktop/Redes%201/Proyecto%20redes/Proyecto-Redes-I-FTP/src/GUI/EnviarArchivos.java</file>
+            <file>file:/C:/Users/jcast/Desktop/Redes%201/Proyecto%20redes/Proyecto-Redes-I-FTP/src/GUI/VistaCliente.java</file>
+            <file>file:/C:/Users/jcast/Desktop/Redes%201/Proyecto%20redes/Proyecto-Redes-I-FTP/src/server/ServerThread.java</file>
+            <file>file:/C:/Users/jcast/Desktop/Redes%201/Proyecto%20redes/Proyecto-Redes-I-FTP/src/data/UsuarioData.java</file>
         </group>
     </open-files>
 </project-private>

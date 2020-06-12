@@ -140,7 +140,7 @@ public class Login extends javax.swing.JFrame {
         Usuario usuario = new Usuario();
         usuario.setNombreUsuario(user);
         usuario.setContrasenna(pass);
-        if (usr.login(usuario)) {
+        if (usr.login(usuario) == 2) {
             lblAviso.setText(user + " " + pass + " ingresado");
             nombre = user;
             try {
@@ -150,6 +150,11 @@ public class Login extends javax.swing.JFrame {
             }
             VistaCliente cliente = new VistaCliente();
             cliente.setVisible(true);
+            this.setVisible(false);
+        }
+        if (usr.login(usuario) == 1) {
+            EnviarArchivos archivos = new EnviarArchivos();
+            archivos.setVisible(true);
             this.setVisible(false);
         } else {
             lblAviso.setText("Error en ingreso");

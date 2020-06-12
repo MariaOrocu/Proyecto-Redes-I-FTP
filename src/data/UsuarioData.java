@@ -38,27 +38,32 @@ public class UsuarioData extends ConexionMysql {
         }
     }
 
-    public boolean login(Usuario usr) {
+    public int login(Usuario usr) {
         PreparedStatement ps = null;
         ResultSet rs = null;
+        int id = 0;
         Connection con = getConnection();
-
-        String query = "SELECT nombre_usuario, contrasenna FROM usuario_ftp WHERE nombre_usuario = ?";
-        try {
-            ps = con.prepareStatement(query);
-            ps.setString(1, usr.getNombreUsuario());
-            rs = ps.executeQuery();
-            if (rs.next()) {
-                if (usr.getContrasenna().equals(rs.getString(2))) {
-                    return true;
-                } else {
-                    return false;
+        if (usr.getNombreUsuario().equalsIgnoreCase("Admin") & usr.getContrasenna().equalsIgnoreCase("Admin")) {
+            id = 1;
+            return id;
+        } else {
+            String query = "SELECT nombre_usuario, contrasenna FROM usuario_ftp WHERE nombre_usuario = ?";
+            try {
+                ps = con.prepareStatement(query);
+                ps.setString(1, usr.getNombreUsuario());
+                rs = ps.executeQuery();
+                if (rs.next()) {
+                    if (usr.getContrasenna().equals(rs.getString(2))) {
+                        id = 2;
+                    } else {
+                        id = 0;
+                    }
                 }
+                return id;
+            } catch (SQLException ex) {
+                Logger.getLogger(UsuarioData.class.getName()).log(Level.SEVERE, null, ex);
+                return 0;
             }
-            return false;
-        } catch (SQLException ex) {
-            Logger.getLogger(UsuarioData.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
         }
     }
 
@@ -75,10 +80,12 @@ public class UsuarioData extends ConexionMysql {
 
             while (rs.next()) {
                 datos.add(rs.getString(2));
+
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(UsuarioData.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UsuarioData.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
         return datos;
     }
