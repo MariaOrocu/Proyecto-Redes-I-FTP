@@ -1,7 +1,11 @@
 package GUI;
 
+import data.UsuarioData;
 import java.net.*;
 import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 
 public class VistaCliente extends javax.swing.JFrame {
@@ -9,6 +13,8 @@ public class VistaCliente extends javax.swing.JFrame {
     String b = "Bienvenido ";
     String r = "Ruta asignada: C:/redes/";
     Login login;
+    InetAddress ip;
+    DefaultListModel modelo;
 
     /**
      * Creates new form VistaCliente
@@ -19,6 +25,15 @@ public class VistaCliente extends javax.swing.JFrame {
         //String b = "Bienvenido ";
         lblBienvenido.setText(b + login.nombre);
         lblRuta.setText(r + login.nombre);
+        try {
+            ip = InetAddress.getLocalHost();
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(VistaCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        txtIp.setText(ip.getHostAddress());
+        modelo = UsuarioData.llenarArchivos(login.nombre);
+        jList1.setModel(modelo);
+
     }
 
     /**
@@ -36,6 +51,10 @@ public class VistaCliente extends javax.swing.JFrame {
         lblRuta = new javax.swing.JLabel();
         btnV = new javax.swing.JButton();
         btnServidor = new javax.swing.JButton();
+        txtIp = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,57 +85,76 @@ public class VistaCliente extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setText("Ip de la máquina");
+
+        jScrollPane1.setViewportView(jList1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(btnSubir)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(lblRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(58, 58, 58)
+                        .addComponent(btnServidor)
+                        .addGap(109, 109, 109))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(84, 84, 84))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
+                        .addContainerGap()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtIp, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(lblBienvenido))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(btnSubir)
-                        .addGap(58, 58, 58)
-                        .addComponent(btnServidor))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addComponent(btnV))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(lblRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(80, Short.MAX_VALUE))
+                        .addGap(216, 216, 216)
+                        .addComponent(btnV)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(lblBienvenido)
-                .addGap(44, 44, 44)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(8, 8, 8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtIp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblBienvenido))
+                        .addGap(98, 98, 98)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSubir)
-                    .addComponent(btnServidor))
-                .addGap(27, 27, 27)
-                .addComponent(lblRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(btnServidor)
+                    .addComponent(lblRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(btnV)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addGap(33, 33, 33))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     public void enviarACarpeta(String nombreArchivo, String nombre) {
 
         try {
 
-            InetAddress ip = InetAddress.getByName("192.168.1.5");
-
+            InetAddress ip = InetAddress.getByName(txtIp.getText());
+            //txtIp.setText(ip.getHostAddress());
             // Creamos el Socket con la direccion y elpuerto de comunicacion
             Socket socket = new Socket(ip, 4400);
             socket.setSoTimeout(20000);
@@ -165,7 +203,7 @@ public class VistaCliente extends javax.swing.JFrame {
 
         try {
 
-            InetAddress ip = InetAddress.getByName("192.168.1.5");
+            InetAddress ip = InetAddress.getByName(txtIp.getText());
 
             // Creamos el Socket con la direccion y elpuerto de comunicacion
             Socket socket = new Socket(ip, 4400);
@@ -287,7 +325,12 @@ public class VistaCliente extends javax.swing.JFrame {
     private javax.swing.JButton btnSubir;
     private javax.swing.JButton btnV;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblBienvenido;
     private javax.swing.JLabel lblRuta;
+    public javax.swing.JTextField txtIp;
     // End of variables declaration//GEN-END:variables
+
 }

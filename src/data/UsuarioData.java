@@ -5,13 +5,17 @@
  */
 package data;
 
+import static data.ConexionMysql.getConnection;
 import domain.Usuario;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 
 public class UsuarioData extends ConexionMysql {
 
@@ -58,4 +62,38 @@ public class UsuarioData extends ConexionMysql {
         }
     }
 
+    public static ArrayList<String> llenarUsuarios() {
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection con = getConnection();
+        ArrayList<String> datos = new ArrayList<String>();
+        String query = "select * from usuario_ftp";
+        try {
+            ps = con.prepareStatement(query);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                datos.add(rs.getString(2));
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuarioData.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return datos;
+    }
+
+    public static DefaultListModel llenarArchivos(String nombre) {
+        DefaultListModel modelo = new DefaultListModel();
+        File folder = new File("c:\\redes\\" + nombre + "\\");
+        File[] listaFolder = folder.listFiles();
+        if (listaFolder != null) {
+            for (int i = 0; i < listaFolder.length; i++) {
+                modelo.addElement(listaFolder[i].getName());
+            }
+        } else {
+            modelo.addElement("El Usuario " + nombre + " no tiene archivos");
+        }
+        return modelo;
+    }
 }
