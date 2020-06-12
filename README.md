@@ -8,3 +8,6 @@ También, contar con el paquete java.io el cual es el encargado de gestionar las
 
 Se debe abrir el IDE seleccionado por el usuario, importar el proyecto, ejecutarlo y seguir las indicaciones que el programa solicita.
 
+Se requiere correr primero el server en la carpeta server del src
+
+Si quiere ingresar como administrador las credenciales son: Admin para nombre de usuario y contraseña
