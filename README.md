@@ -7,5 +7,7 @@ Para lograr ejecutar este proyecto es necesario instalar un IDE que permita crea
 También, contar con el paquete java.io el cual es el encargado de gestionar las funciones de entrada/salida del sistema por medio de flujos de datos, serialización y el sistema de archivos. Además, del paquete java.net que permite realizar conexiones a través de la red comunicando así dos o más computadoras. 
 
 Se debe abrir el IDE seleccionado por el usuario, importar el proyecto, ejecutarlo y seguir las indicaciones que el programa solicita.
+
 Se requiere correr primero el server en la carpeta server del src
+
 Si quiere ingresar como administrador las credenciales son: Admin para nombre de usuario y contraseña
