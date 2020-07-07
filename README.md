@@ -23,6 +23,7 @@ A continuación por medio de una serie de capturas de pantalla se detallarán lo
 
 1. Se debe abrir el IDE de Netbeans.
 2. Seleccionar la opción Team/ Equipo en la barra principal. 
+![Captura de pantalla (417)](https://user-images.githubusercontent.com/28690419/86803156-f89a9700-c032-11ea-9b4a-5f505487ff96.png)
 
 
 
