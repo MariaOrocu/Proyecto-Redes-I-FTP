@@ -11,11 +11,16 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import java.util.Arrays;
+import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
+import javax.management.openmbean.InvalidKeyException;
 import org.apache.commons.codec.binary.Base64;
 
 /**
@@ -145,4 +150,54 @@ public class EjemplosVarios {
         }
         return desencriptado;
     }
+
+    public void encryptedFile(String secretKey, String fileInputPath, String fileOutPath) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IOException,
+            IllegalBlockSizeException, BadPaddingException, java.security.InvalidKeyException {
+        SecretKey key = new SecretKeySpec(secretKey.getBytes(), "AES");
+        Cipher cipher = Cipher.getInstance("AES");
+        cipher.init(Cipher.ENCRYPT_MODE, key);
+
+        File fileInput = new File(fileInputPath);
+        FileInputStream inputStream = new FileInputStream(fileInput);
+        byte[] inputBytes = new byte[(int) fileInput.length()];
+        inputStream.read(inputBytes);
+
+        byte[] outputBytes = cipher.doFinal(inputBytes);
+
+        File fileEncryptOut = new File(fileOutPath);
+        FileOutputStream outputStream = new FileOutputStream(fileEncryptOut);
+        outputStream.write(outputBytes);
+
+        inputStream.close();
+        outputStream.close();
+
+        System.out.println("File successfully encrypted!");
+        System.out.println("New File: " + fileOutPath);
+    }
+
+    public void decryptedFile(String secretKey, String fileInputPath, String fileOutPath)
+            throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IOException,
+            IllegalBlockSizeException, BadPaddingException, java.security.InvalidKeyException {
+        SecretKey key = new SecretKeySpec(secretKey.getBytes(), "AES");
+        Cipher cipher = Cipher.getInstance("AES");
+        cipher.init(Cipher.DECRYPT_MODE, key);
+
+        File fileInput = new File(fileInputPath);
+        FileInputStream inputStream = new FileInputStream(fileInput);
+        byte[] inputBytes = new byte[(int) fileInput.length()];
+        inputStream.read(inputBytes);
+
+        byte[] outputBytes = cipher.doFinal(inputBytes);
+
+        File fileEncryptOut = new File(fileOutPath);
+        FileOutputStream outputStream = new FileOutputStream(fileEncryptOut);
+        outputStream.write(outputBytes);
+
+        inputStream.close();
+        outputStream.close();
+
+        System.out.println("File successfully decrypted!");
+        System.out.println("New File: " + fileOutPath);
+    }
+
 }

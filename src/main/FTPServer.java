@@ -21,6 +21,11 @@ public class FTPServer {
         //System.out.println("desencriptado texto: " + varios.descifrar("Key", guarda));
         //varios.enviarEjemplos("Antonio");
         //varios.recibirAhi();
+        //String secretKey = "jonathancastro.com";
+        //varios.encryptedFile(secretKey, "C:\\redes\\Jonnsn.sql", "C:\\redes\\Jonnsn.enc");
+        //System.out.println("encriptado");
+        //varios.decryptedFile(secretKey, "C:\\redes\\Jonnsn.enc", "C:\\redes\\Jonnsn.sql");
+        //System.out.println("desencriptado");
     }
 
 }

@@ -71,6 +71,7 @@ public class EnviarArchivos extends javax.swing.JFrame {
             System.out.println("Enviando Archivo: " + archivo);
 
             // Enviamos el nombre del archivo
+            dos.writeChar('A');
             dos.writeUTF(archivo.getName());
             dos.writeInt(tamañoArchivo);
             dos.writeUTF(usuario);

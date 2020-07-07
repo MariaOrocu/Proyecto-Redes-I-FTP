@@ -74,6 +74,8 @@ public class ServerThread implements Runnable {
                     String nombre = dis.readUTF();
                     int filesCount = dis.readInt();
                     dirPath += nombre;
+                    File directorio = new File(dirPath + "\\");
+                    directorio.mkdir();
                     File[] files = new File[filesCount];
 
                     for (int i = 0; i < filesCount; i++) {
