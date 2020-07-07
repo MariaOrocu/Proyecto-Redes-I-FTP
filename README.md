@@ -2,11 +2,11 @@
 # Proyecto-Redes-I-FTP
 # Estudiantes: Jonathan Castro - María Orocú.
 
-Para lograr ejecutar este proyecto es necesario instalar un IDE que permita crear y ejecutar proyectos en el lenguaje de programación java, por ejemplo: eclipse o netbeans.
+Para lograr ejecutar este proyecto es necesario instalar un IDE que permita crear y ejecutar proyectos en el lenguaje de programación java, en este caso netbeans.
 
-También, contar con el paquete java.io el cual es el encargado de gestionar las funciones de entrada/salida del sistema por medio de flujos de datos, serialización y el sistema de archivos. Además, del paquete java.net que permite realizar conexiones a través de la red comunicando así dos o más computadoras. 
+También, contar con la librería java.io la cual se encarga de gestionar las funciones de entrada/salida del sistema por medio de flujos de datos, serialización y el sistema de archivos. Además, la librería java.net que permite realizar conexiones a través de la red comunicando de este modo dos o más computadoras. 
 
-Se debe abrir el IDE seleccionado por el usuario, importar el proyecto, ejecutarlo y seguir las indicaciones que el programa solicita.
+A continuación por medio de una serie de capturas de pantalla se detallaran los pasos a seguir para clonar el proyecto y ejecutarlo. Se debe abrir el IDE seleccionado por el usuario, importar el proyecto.
 
 Se requiere correr primero el server en la carpeta server del src
 
