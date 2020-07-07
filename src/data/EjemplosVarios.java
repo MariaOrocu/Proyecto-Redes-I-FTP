@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package server;
+package data;
 
 import java.io.*;
 import java.net.InetAddress;
@@ -22,7 +22,7 @@ import org.apache.commons.codec.binary.Base64;
  *
  *
  */
-public class ejemploVarios {
+public class EjemplosVarios {
 
     String secretKey = "Key";
 

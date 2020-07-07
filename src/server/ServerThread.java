@@ -26,7 +26,7 @@ public class ServerThread implements Runnable {
         System.out.println("Esperando recepcion de archivos...");
     }
 
-    public void iniciarServidor() {
+    public void iniciarServidor() throws InterruptedException {
         while (true) {
 
             try {
@@ -34,40 +34,70 @@ public class ServerThread implements Runnable {
                 Socket cliente = server.accept();
                 String ruta = "c:\\redes\\";
                 // Creamos flujo de entrada para leer los datos que envia el cliente
-                DataInputStream dis = new DataInputStream(cliente.getInputStream());
+                BufferedInputStream bis = new BufferedInputStream(cliente.getInputStream());
+                DataInputStream dis = new DataInputStream(bis);
 
                 // Obtenemos el nombre del archivo
-                String nombreArchivo = dis.readUTF();
-                System.out.println("ver " + nombreArchivo.toString());
-                int tam = dis.readInt();
-                String nombreUsuario = dis.readUTF();
-                ruta += nombreUsuario + "\\";
-                File directorio = new File(ruta);
-                directorio.mkdir();
-                FileOutputStream fos = new FileOutputStream(ruta + nombreArchivo);
-                BufferedOutputStream out = new BufferedOutputStream(fos);
-                BufferedInputStream in = new BufferedInputStream(cliente.getInputStream());
+                char type = dis.readChar();
+                if (type == 'A') {
+                    String nombreArchivo = dis.readUTF();
+                    System.out.println("ver " + nombreArchivo.toString());
+                    int tam = dis.readInt();
+                    String nombreUsuario = dis.readUTF();
+                    ruta += nombreUsuario + "\\";
+                    File directorio = new File(ruta);
+                    directorio.mkdir();
+                    FileOutputStream fos = new FileOutputStream(ruta + nombreArchivo);
+                    BufferedOutputStream out = new BufferedOutputStream(fos);
+                    BufferedInputStream in = new BufferedInputStream(cliente.getInputStream());
 
-                byte[] buff = new byte[tam];
+                    byte[] buff = new byte[tam];
 
-                // Obtenemos el archivo mediante la lectura de bytes enviados
-                for (int i = 0; i < buff.length; i++) {
-                    buff[i] = (byte) in.read();
+                    // Obtenemos el archivo mediante la lectura de bytes enviados
+                    for (int i = 0; i < buff.length; i++) {
+                        buff[i] = (byte) in.read();
+                    }
+                    out.write(buff);
+
+                    // Cerramos flujos
+                    out.flush();
+                    in.close();
+                    out.close();
+                    cliente.close();
+
+                    System.out.println("Archivo guardado"
+                            + " " + nombreArchivo);
                 }
-                out.write(buff);
+                if (type == 'B') {
 
-                // Cerramos flujos
-                out.flush();
-                in.close();
-                out.close();
-                cliente.close();
+                    String dirPath = "c:\\Users\\jcast\\Documents\\";
+                    String nombre = dis.readUTF();
+                    int filesCount = dis.readInt();
+                    dirPath += nombre;
+                    File[] files = new File[filesCount];
 
-                System.out.println("Archivo guardado"
-                        + " " + nombreArchivo);
+                    for (int i = 0; i < filesCount; i++) {
+                        long fileLength = dis.readLong();
+                        String fileName = dis.readUTF();
 
+                        files[i] = new File(dirPath + "\\" + fileName);
+
+                        FileOutputStream fos = new FileOutputStream(files[i]);
+                        BufferedOutputStream bos = new BufferedOutputStream(fos);
+                        //BufferedInputStream bis = new BufferedInputStream(cliente.getInputStream());
+                        for (int j = 0; j < fileLength; j++) {
+                            bos.write(bis.read());
+
+                        }
+                        bos.close();
+                    }
+                    System.out.println("Directorio actualizado para: " + nombre);
+                    dis.close();
+                }
             } catch (Exception e) {
                 System.out.println("Recibir: " + e.toString());
             }
+            Thread.sleep(1000);
         }
     }
 

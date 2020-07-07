@@ -7,7 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
-import server.ejemploVarios;
+import data.EjemplosVarios;
 
 public class VistaCliente extends javax.swing.JFrame {
 
@@ -293,7 +293,7 @@ public class VistaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnServidorActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        ejemploVarios varios = new ejemploVarios();
+        EjemplosVarios varios = new EjemplosVarios();
         try {
             varios.enviarEjemplos(login.nombre);
         } catch (IOException ex) {
