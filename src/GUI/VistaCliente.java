@@ -7,6 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
+import server.ejemploVarios;
 
 public class VistaCliente extends javax.swing.JFrame {
 
@@ -55,6 +56,7 @@ public class VistaCliente extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+        btnActualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,26 +91,33 @@ public class VistaCliente extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(jList1);
 
+        btnActualizar.setText("Actualizar Carpeta cliente");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(28, 74, Short.MAX_VALUE)
                 .addComponent(btnSubir)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(lblRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(58, 58, 58)
-                        .addComponent(btnServidor)
-                        .addGap(109, 109, 109))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(56, 56, 56)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(59, 59, 59)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(84, 84, 84))))
+                        .addGap(84, 84, 84))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(lblRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnServidor)
+                        .addGap(62, 62, 62))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -119,8 +128,10 @@ public class VistaCliente extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(lblBienvenido))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(216, 216, 216)
-                        .addComponent(btnV)))
+                        .addGap(113, 113, 113)
+                        .addComponent(btnV)
+                        .addGap(206, 206, 206)
+                        .addComponent(btnActualizar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -141,9 +152,11 @@ public class VistaCliente extends javax.swing.JFrame {
                     .addComponent(btnSubir)
                     .addComponent(btnServidor)
                     .addComponent(lblRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addComponent(btnV)
-                .addGap(33, 33, 33))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnV)
+                    .addComponent(btnActualizar))
+                .addGap(23, 23, 23))
         );
 
         pack();
@@ -170,6 +183,7 @@ public class VistaCliente extends javax.swing.JFrame {
             System.out.println("Enviando Archivo: " + nombre);
 
             // Enviamos el nombre del archivo
+            dos.writeChar('A');
             dos.writeUTF(nombre);
             dos.writeInt(tamañoArchivo);
             dos.writeUTF(login.nombre);
@@ -219,6 +233,7 @@ public class VistaCliente extends javax.swing.JFrame {
             System.out.println("Enviando Archivo: " + nombre);
 
             // Enviamos el nombre del archivo
+            dos.writeChar('A');
             dos.writeUTF(nombre);
             dos.writeInt(tamañoArchivo);
             dos.writeUTF("servidor");
@@ -277,6 +292,15 @@ public class VistaCliente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnServidorActionPerformed
 
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        ejemploVarios varios = new ejemploVarios();
+        try {
+            varios.enviarEjemplos(login.nombre);
+        } catch (IOException ex) {
+            Logger.getLogger(VistaCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -321,6 +345,7 @@ public class VistaCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnServidor;
     private javax.swing.JButton btnSubir;
     private javax.swing.JButton btnV;

@@ -12,7 +12,7 @@ public class Server {
         int id = 0;
         while (true) {
             try {
-                hilo.iniciarServidor(id);
+                hilo.iniciarServidor();
                 Thread.sleep(2000);
                 id++;
 

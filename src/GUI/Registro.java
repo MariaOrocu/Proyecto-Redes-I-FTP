@@ -122,7 +122,7 @@ public class Registro extends javax.swing.JFrame {
         UsuarioData usuarioD = new UsuarioData();
         Usuario usr = new Usuario();
         String user = txtNombreR.getText();
-        String pass = txtContraR.getText();
+        String pass = usuarioD.cifrar("Key", txtContraR.getText());
         if (!txtNombreR.getText().equals("") && !txtContraR.getText().equals("")) {
             usr.setNombreUsuario(user);
             usr.setContrasenna(pass);

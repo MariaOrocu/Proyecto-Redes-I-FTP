@@ -26,7 +26,7 @@ public class ServerThread implements Runnable {
         System.out.println("Esperando recepcion de archivos...");
     }
 
-    public void iniciarServidor(int id) {
+    public void iniciarServidor() {
         while (true) {
 
             try {
