@@ -22,22 +22,30 @@ A continuación por medio de una serie de capturas de pantalla se detallarán lo
 # Clonación del proyecto
 
 1. Se debe abrir el IDE de Netbeans.
+
 2. Seleccionar la opción Team/ Equipo en la barra principal. 
 ![Captura de pantalla (417)](https://user-images.githubusercontent.com/28690419/86803156-f89a9700-c032-11ea-9b4a-5f505487ff96.png)
+
 3. Luego de seleccionar Team/Equipo se despliegan una serie de opciones, de las cuales se elegirá Git y seguidamente Clone.
 ![Captura de pantalla (411)](https://user-images.githubusercontent.com/28690419/86814230-5a143300-c03e-11ea-8728-37b471a8f03e.png)
+
 4. Se desplegará una ventana "Clone Repository" en la que se solicita el enlace del repositorio, las credenciales de la cuenta en GitHub y la ruta deseada para clonar el proyecto. Luego de esto dar click en Next. 
 ![Captura de pantalla (412)](https://user-images.githubusercontent.com/28690419/86814693-ffc7a200-c03e-11ea-88be-c5fd638cbc79.png)
+
 El enlace del repositorio se puede copiar desde la sección de code como se muestra en la siguiente imagen.
 ![Captura de pantalla (418)](https://user-images.githubusercontent.com/28690419/86815060-7795cc80-c03f-11ea-9315-711ce90145ad.png)
+
 5. Se mostrará la siguiente ventana y es necesario seleccionar el botón de Next.
 ![Captura de pantalla (413)](https://user-images.githubusercontent.com/28690419/86815636-1cb0a500-c040-11ea-917a-74a1ff948452.png)
+
 6. Finalmente es necesario presionar el botón de Finish y el proyecto quedará clonado correctamente. 
 ![Captura de pantalla (414)](https://user-images.githubusercontent.com/28690419/86816613-45856a00-c041-11ea-9965-86fc0c9d4436.png)
 
+
 **En el repositorio de este proyecto ya se encuentra el conector de MySQL con JAVA. En caso de no encontrarse se agrega de la siguiente manera.** 
 1. Con el proyecto ya clonado en Netbeans, es necesario buscar la carpeta de Libraries dentro del proyecto, dar click derecho sobre esta y seleccionar la opción Add JAR/Folder.
-![Captura de pantalla (419)](https://user-images.githubusercontent.com/28690419/86861091-7e463300-c083-11ea-8968-fcdd442db607.png)
+![Captura de pantalla (419)](https://user-images.githubusercontent.com/28690419/86861857-4809b300-c085-11ea-8a89-c203f14aaebc.png)
+
 2. Se mostrará una ventana con la dirección del archivo JAR, si no se encuentra se puede buscar en la ubicación que se haya guardado, se selecciona este archivo y se presiona el botón de Open/Abrir. 
 ![Captura de pantalla (420)](https://user-images.githubusercontent.com/28690419/86861535-91a5ce00-c084-11ea-8e50-01287418f5b8.png)
 
