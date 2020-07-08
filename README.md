@@ -44,12 +44,14 @@ El enlace del repositorio se puede copiar desde la sección de code como se mues
 
 **En el repositorio de este proyecto ya se encuentra el conector de MySQL con JAVA. En caso de no encontrarse se agrega de la siguiente manera.** 
 1. Con el proyecto ya clonado en Netbeans, es necesario buscar la carpeta de Libraries dentro del proyecto, dar click derecho sobre esta y seleccionar la opción Add JAR/Folder.
+
 ![Captura de pantalla (419)](https://user-images.githubusercontent.com/28690419/86861857-4809b300-c085-11ea-8a89-c203f14aaebc.png)
 
 2. Se mostrará una ventana con la dirección del archivo JAR, si no se encuentra se puede buscar en la ubicación que se haya guardado, se selecciona este archivo y se presiona el botón de Open/Abrir. 
 ![Captura de pantalla (420)](https://user-images.githubusercontent.com/28690419/86861535-91a5ce00-c084-11ea-8e50-01287418f5b8.png)
 
-De esta manera se añadirá el archivo a la carpeta de Libraries. 
+De esta manera se añadirá el archivo a la carpeta de Libraries.
+
 ![Captura de pantalla (421)](https://user-images.githubusercontent.com/28690419/86861574-aa15e880-c084-11ea-93fb-84b7e5401892.png)
 
 Los siguientes pasos para ejecutar el proyecto de manera correcta se encuentran en el manual de usuario, ubicado en la wiki de este repositorio.
