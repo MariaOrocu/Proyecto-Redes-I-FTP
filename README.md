@@ -35,14 +35,15 @@ El enlace del repositorio se puede copiar desde la sección de code como se mues
 6. Finalmente es necesario presionar el botón de Finish y el proyecto quedará clonado correctamente. 
 ![Captura de pantalla (414)](https://user-images.githubusercontent.com/28690419/86816613-45856a00-c041-11ea-9965-86fc0c9d4436.png)
 
-*En el codigo de este proyecto ya se encuentra el conector de MySQL con JAVA. En caso de no encontrarse se agrega de la siguiente manera. 
-1. Con el proyecto ya clonado en Netbeans, es necesario buscar la carpeta de Libraries dentro del proyecto. 
+**En el repositorio de este proyecto ya se encuentra el conector de MySQL con JAVA. En caso de no encontrarse se agrega de la siguiente manera.** 
+1. Con el proyecto ya clonado en Netbeans, es necesario buscar la carpeta de Libraries dentro del proyecto, dar click derecho sobre esta y seleccionar la opción Add JAR/Folder.
+![Captura de pantalla (419)](https://user-images.githubusercontent.com/28690419/86861091-7e463300-c083-11ea-8968-fcdd442db607.png)
+2. Se mostrará una ventana con la dirección del archivo JAR, si no se encuentra se puede buscar en la ubicación que se haya guardado, se selecciona este archivo y se presiona el botón de Open/Abrir. 
+![Captura de pantalla (420)](https://user-images.githubusercontent.com/28690419/86861535-91a5ce00-c084-11ea-8e50-01287418f5b8.png)
+
+De esta manera se añadirá el archivo a la carpeta de Libraries. 
+![Captura de pantalla (421)](https://user-images.githubusercontent.com/28690419/86861574-aa15e880-c084-11ea-93fb-84b7e5401892.png)
+
+Los siguientes pasos para ejecutar el proyecto de manera correcta se encuentran en el manual de usuario, ubicado en la wiki de este repositorio.
 
 
-
-
-
-
-Se requiere correr primero el server en la carpeta server del src
-
-Si quiere ingresar como administrador las credenciales son: Admin para nombre de usuario y contraseña
