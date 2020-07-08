@@ -17,7 +17,7 @@ En este apartado se detallará el software que se debe instalar para ejecutar es
 
 - También, contar con la librería java.io la cual se encarga de gestionar las funciones de entrada/salida del sistema por medio de flujos de datos, serialización y el sistema de   archivos. Además, la librería java.net que permite realizar conexiones a través de la red comunicando de este modo dos o más computadoras. 
 
-A continuación por medio de una serie de capturas de pantalla se detallarán los pasos a seguir para clonar el proyecto y ejecutarlo. 
+A continuación, por medio de una serie de capturas de pantalla se detallarán los pasos a seguir para clonar el proyecto y ejecutarlo. 
 
 # Clonación del proyecto
 
